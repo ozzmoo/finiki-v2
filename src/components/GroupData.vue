@@ -1,7 +1,7 @@
 <template>
   <div class="group-data">
     <v-card>
-      <v-card-title></v-card-title>
+      <v-card-title>Финики</v-card-title>
       <v-card-text>
         <v-select
           v-model="selectedGroup"
@@ -43,12 +43,20 @@
                 <tr>
                   <th class="text-left">Студент</th>
                   <th class="text-left">Кол-во фиников</th>
+                  <th class="text-left">Действия</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="student in studentList" :key="student.id">
                   <td>{{ student.name }}</td>
                   <td>{{ student.finiki }}</td>
+                  <td>
+                    <v-btn
+                      @click="deleteSelfFiniks(selectedGroup, student.id)"
+                      small
+                      ><v-icon dark> mdi-close </v-icon></v-btn
+                    >
+                  </td>
                 </tr>
               </tbody>
             </template>
@@ -62,6 +70,7 @@
 <script>
 export default {
   name: "GroupData",
+
   data() {
     return {
       selectedGroup: "",
@@ -72,22 +81,41 @@ export default {
     };
   },
   methods: {
+    /* Set selected group ID to global store */
     setUpSelectedGroup() {
       this.$store.commit("setSelectedGroup", this.selectedGroup);
     },
+    /* Get students obj from db  */
     fillStudentList() {
       let group = this.selectedGroup;
       this.$store.dispatch("getStudentListFromDB", { group });
     },
+    /* Add finiks by personID */
     addFiniks() {
       let studentID = this.selectedStudent;
       let groupID = this.selectedGroup;
       let count = this.count;
       let comment = this.comment;
-      this.$store.dispatch("addFiniks", { studentID, groupID, count, comment });
-      this.count = null;
-      this.comment = "";
+      if (studentID) {
+        this.$store.dispatch("addFiniks", {
+          studentID,
+          groupID,
+          count,
+          comment,
+        });
+        this.count = null;
+        this.comment = "";
+        this.fillStudentList();
+      }
     },
+    /* Delete all finiks on selected person */
+    deleteSelfFiniks(groupID, studentID) {
+      if (confirm("Вы собираетесь стереть все финики студента. Продолжить?")) {
+        this.$store.dispatch("deleteFiniks", { groupID, studentID });
+        this.fillStudentList();
+      }
+    },
+    /*  */
     convertGroupListToArray(groupList) {
       let tempArray = [];
       for (let key in groupList) {
@@ -98,6 +126,7 @@ export default {
       }
       return tempArray;
     },
+    /*  */
     convertStudentListToArray(students) {
       let tempArray = [];
       for (let key in students) {
@@ -109,6 +138,7 @@ export default {
       }
       return tempArray;
     },
+    /* Summ of finiks on one student */
     computeFiniks(finiks) {
       this.finikSumm = 0;
       for (let finik in finiks) {
@@ -139,6 +169,10 @@ export default {
 
 .count {
   max-width: 150px;
+}
+
+.group-data {
+  margin-top: 2rem;
 }
 
 .group-data__table {

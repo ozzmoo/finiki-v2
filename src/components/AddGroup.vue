@@ -1,5 +1,6 @@
 <template>
   <div class="add-group">
+    <Back />
     <v-text-field
       v-model="groupName"
       label="Название группы"
@@ -10,8 +11,13 @@
 </template>
 
 <script>
+import Back from "./Back";
+
 export default {
   name: "AddGroup",
+  components: {
+    Back,
+  },
   data() {
     return {
       groupName: "",

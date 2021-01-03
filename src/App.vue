@@ -22,3 +22,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.rout-link {
+  text-decoration: none;
+  color: black !important;
+}
+</style>

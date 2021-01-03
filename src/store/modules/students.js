@@ -30,15 +30,26 @@ export default {
       comment
     }) {
       try {
-        console.log(studentID,
-          groupID,
-          count,
-          comment)
         const currentUser = firebase.auth().currentUser.uid;
         await firebase.database().ref(`/users/${currentUser}/groups/${groupID}/students/${studentID}/finiki`).push({
           count,
           comment
         })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async deleteFiniks(ctx, {
+      groupID,
+      studentID
+    }) {
+      console.log(groupID, studentID)
+      try {
+        const currentUser = firebase.auth().currentUser.uid;
+        const ref = await firebase.database().ref(`/users/${currentUser}/groups/${groupID}/students/${studentID}/finiki`)
+        console.log(ref)
+        ref.remove()
       } catch (error) {
         console.log(error)
       }

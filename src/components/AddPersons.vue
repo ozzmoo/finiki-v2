@@ -1,5 +1,6 @@
 <template>
   <div class="add-persons">
+    <Back />
     <v-select
       v-model="selectedGroup"
       :items="groupList"
@@ -17,8 +18,13 @@
 </template>
 
 <script>
+import Back from "./Back";
+
 export default {
   name: "AddPersons",
+  components: {
+    Back,
+  },
   data() {
     return {
       personName: "",

@@ -13,7 +13,11 @@
         ></v-text-field>
         <div class="btns">
           <v-btn @click="login">Войти</v-btn>
-          <v-btn><router-link to="/reg">Регистрация</router-link></v-btn>
+          <v-btn
+            ><router-link to="/reg" class="rout-link"
+              >Регистрация</router-link
+            ></v-btn
+          >
         </div>
       </v-card-text>
     </v-card>
