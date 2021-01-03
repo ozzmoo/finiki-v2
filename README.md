@@ -1,5 +1,7 @@
 # vue-finiki
 
+demo: [finiki-v2.web.app](https://finiki-v2.web.app/) (аккаунт test@test.ru : 123456)
+
 ## Project setup
 ```
 npm install
