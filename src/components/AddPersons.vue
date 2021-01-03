@@ -7,44 +7,55 @@
       item-text="name"
       item-value="id"
       label="Выберите группу"
+      outlined
       @change="getStudentsByGroup"
     ></v-select>
     <div class="remove-add">
       <div class="remove-add__add">
-        <v-text-field
-          v-model="personName"
-          label="Студент"
-          outlined
-          required
-        ></v-text-field>
-        <v-btn
-          color="#007bff"
-          dark
-          @click="
-            addPerson();
-            getStudentsByGroup();
-          "
-          >Добавить</v-btn
-        >
+        <v-card>
+          <v-card-title>Добавить студента</v-card-title>
+          <v-card-text>
+            <v-text-field
+              v-model="personName"
+              label="Студент"
+              outlined
+              required
+            ></v-text-field>
+            <v-btn
+              color="#007bff"
+              dark
+              @click="
+                addPerson();
+                getStudentsByGroup();
+              "
+              >Добавить</v-btn
+            >
+          </v-card-text>
+        </v-card>
       </div>
       <div class="remove-add__remove">
-        <v-autocomplete
-          v-model="selectedStudent"
-          :items="studentList"
-          item-text="name"
-          item-value="id"
-          outlined
-          label="Студент"
-        ></v-autocomplete>
-        <v-btn
-          color="red lighten-1"
-          dark
-          @click="
-            removeStudent();
-            getStudentsByGroup();
-          "
-          >Удалить</v-btn
-        >
+        <v-card>
+          <v-card-title>Удалить студента</v-card-title>
+          <v-card-text>
+            <v-autocomplete
+              v-model="selectedStudent"
+              :items="studentList"
+              item-text="name"
+              item-value="id"
+              outlined
+              label="Студент"
+            ></v-autocomplete>
+            <v-btn
+              color="red lighten-1"
+              dark
+              @click="
+                removeStudent();
+                getStudentsByGroup();
+              "
+              >Удалить</v-btn
+            >
+          </v-card-text>
+        </v-card>
       </div>
     </div>
   </div>
@@ -122,13 +133,9 @@ export default {
 
 <style lang="scss" scoped>
 .remove-add {
-  display: flex;
-  justify-content: space-between;
-  &__add {
-    width: 45%;
-  }
-  &__remove {
-    width: 45%;
-  }
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
 }
 </style>

@@ -14,6 +14,16 @@ export default {
         })
       }
     },
+    async removeGroup(ctx, {
+      groupID
+    }) {
+      try {
+        const currentUser = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/users/${currentUser}/groups/`).child(groupID).remove()
+      } catch (error) {
+        console.log(error)
+      }
+    },
     async getGroupListFromDB(ctx) {
       const currentUser = await firebase.auth().currentUser.uid;
       let groupList = null
