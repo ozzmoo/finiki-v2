@@ -4,7 +4,9 @@
       <nav class="nav">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <h1 class="nav__title">Финики 2.0</h1>
-        <v-btn small icon @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
+        <v-btn color="red lighten-1" small icon @click="logout"
+          ><v-icon>mdi-logout</v-icon></v-btn
+        >
       </nav>
     </v-app-bar>
 
@@ -13,7 +15,7 @@
         <v-list-item-group active-class="deep-purple--text text--accent-4">
           <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-gamepad-square</v-icon>
+              <v-icon color="#FF613F">mdi-gamepad-square</v-icon>
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/draw" class="rout-link">
@@ -24,7 +26,7 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-account-group</v-icon>
+              <v-icon color="#12DA67">mdi-account-group</v-icon>
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addgroup" class="rout-link">
@@ -35,7 +37,7 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <v-icon>mdi-human-greeting</v-icon>
+              <v-icon color="#5452FF">mdi-human-greeting</v-icon>
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addpersons" class="rout-link">

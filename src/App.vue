@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  font-family: Roboto;
+}
 .rout-link {
   text-decoration: none;
   color: black !important;

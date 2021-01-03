@@ -36,32 +36,36 @@
           </div>
           <v-btn color="#007bff" dark @click="addFiniks">Добавить</v-btn>
         </div>
-        <div class="group-data__table">
-          <v-simple-table>
-            <template>
-              <thead>
-                <tr>
-                  <th class="text-left">Студент</th>
-                  <th class="text-left">Кол-во фиников</th>
-                  <th class="text-left">Действия</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="student in studentList" :key="student.id">
-                  <td>{{ student.name }}</td>
-                  <td>{{ student.finiki }}</td>
-                  <td>
-                    <v-btn
-                      @click="deleteSelfFiniks(selectedGroup, student.id)"
-                      small
-                      ><v-icon dark> mdi-close </v-icon></v-btn
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </div>
+      </v-card-text>
+    </v-card>
+    <v-card>
+      <v-card-text class="group-data__table">
+        <v-simple-table>
+          <template>
+            <thead>
+              <tr>
+                <th class="text-left">Студент</th>
+                <th class="text-left">Кол-во фиников</th>
+                <th class="text-left">Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="student in studentList" :key="student.id">
+                <td>{{ student.name }}</td>
+                <td>{{ student.finiki }}</td>
+                <td>
+                  <v-btn
+                    @click="deleteSelfFiniks(selectedGroup, student.id)"
+                    small
+                    icon
+                    color="red lighten-1"
+                    ><v-icon dark> mdi-trash-can-outline </v-icon></v-btn
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
       </v-card-text>
     </v-card>
   </div>
@@ -176,6 +180,6 @@ export default {
 }
 
 .group-data__table {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 </style>

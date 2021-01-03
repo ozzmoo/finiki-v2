@@ -11,7 +11,7 @@
           :type="passtype"
           required
         ></v-text-field>
-        <v-btn @click="auth">Зарегистрироваться</v-btn>
+        <v-btn color="#4DB6AC" dark @click="auth">Зарегистрироваться</v-btn>
       </v-card-text>
     </v-card>
   </div>

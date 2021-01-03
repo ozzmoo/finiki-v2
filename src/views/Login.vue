@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h2 class="login__title">finiki 2.0</h2>
+    <h2 class="login__title">Финики 2.0</h2>
     <v-card>
       <v-card-title></v-card-title>
       <v-card-text>
@@ -12,8 +12,8 @@
           required
         ></v-text-field>
         <div class="btns">
-          <v-btn @click="login">Войти</v-btn>
-          <v-btn
+          <v-btn color="#007bff" dark @click="login">Войти</v-btn>
+          <v-btn color="#4DB6AC" dark
             ><router-link to="/reg" class="rout-link"
               >Регистрация</router-link
             ></v-btn
