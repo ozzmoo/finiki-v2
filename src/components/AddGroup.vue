@@ -23,6 +23,7 @@ export default {
       try {
         await this.$store.dispatch("addGroup", groupName);
         await this.$store.dispatch("getGroupListFromDB");
+        this.groupName = "";
       } catch (error) {
         console.log(error);
       }

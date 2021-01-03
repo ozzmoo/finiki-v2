@@ -8,9 +8,15 @@
     </v-app-bar>
     <v-main>
       <v-container fluid>
-        <p>Красава, {{ currentUser ? currentUser.name : null }}</p>
-        <AddGroup />
-        <AddPersons />
+        <div class="routes">
+          <router-link to="/addgroup">
+            <v-btn> Добавить группу</v-btn>
+          </router-link>
+          <router-link to="/addpersons">
+            <v-btn> Добавить студентов</v-btn>
+          </router-link>
+        </div>
+        <GroupData />
       </v-container>
     </v-main>
   </div>
@@ -18,36 +24,20 @@
 
 <script>
 import firebase from "firebase/app";
-import AddGroup from "../components/AddGroup";
-import AddPersons from "../components/AddPersons";
+import GroupData from "../components/GroupData";
 export default {
   name: "Home",
-  components: {
-    AddGroup,
-    AddPersons,
-  },
+  components: { GroupData },
   data() {
-    return {
-      currentUser: null,
-    };
+    return {};
   },
   methods: {
     logout() {
       firebase.auth().signOut();
     },
-    getDBValue() {
-      return firebase
-        .database()
-        .ref("/users/" + firebase.auth().currentUser.uid)
-        .once("value")
-        .then((snapshot) => {
-          this.currentUser = snapshot.val();
-        });
-    },
   },
   computed: {},
   mounted() {
-    this.getDBValue();
     this.$store.dispatch("getGroupListFromDB");
   },
 };
@@ -63,5 +53,10 @@ export default {
     width: 40px;
     height: auto;
   }
+}
+
+.routes {
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

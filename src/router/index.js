@@ -18,6 +18,21 @@ const routes = [{
     path: '/reg',
     name: 'Reg',
     component: () => import('../views/Reg.vue')
+  },
+  {
+    path: '/addgroup',
+    name: 'AddGroup',
+    component: () => import('../components/AddGroup.vue')
+  },
+  {
+    path: '/addpersons',
+    name: 'AddPersons',
+    component: () => import('../components/AddPersons.vue')
+  },
+  {
+    path: '/groupdata',
+    name: 'GroupData',
+    component: () => import('../components/GroupData.vue')
   }
 ]
 

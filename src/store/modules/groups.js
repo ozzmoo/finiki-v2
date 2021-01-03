@@ -4,7 +4,6 @@ import firebase from 'firebase/app';
 export default {
   state: {
     groupList: [],
-    studentList: []
   },
   actions: {
     async addGroup(ctx, groupName) {
@@ -43,8 +42,6 @@ export default {
     updateGroupList(state, groupList) {
       state.groupList = groupList
     },
-
-    updateStudentList(state, studentList) {}
 
   },
   getters: {
