@@ -33,6 +33,11 @@ const routes = [{
     path: '/groupdata',
     name: 'GroupData',
     component: () => import('../components/GroupData.vue')
+  },
+  {
+    path: '/draw',
+    name: 'Draw',
+    component: () => import('../views/Draw.vue')
   }
 ]
 

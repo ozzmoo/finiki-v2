@@ -1,6 +1,6 @@
 <template>
   <div class="back">
-    <v-btn @click="back">Назад</v-btn>
+    <v-btn large icon @click="back"><v-icon>mdi-arrow-left</v-icon></v-btn>
   </div>
 </template>
 
@@ -16,4 +16,7 @@ export default {
 </script>
 
 <style>
+.back {
+  width: 100%;
+}
 </style>
