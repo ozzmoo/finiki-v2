@@ -30,7 +30,7 @@
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addgroup" class="rout-link">
-                Добавить группу
+                Группы
               </router-link></v-list-item-title
             >
           </v-list-item>
@@ -41,7 +41,7 @@
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addpersons" class="rout-link">
-                Добавить студентов
+                Студенты
               </router-link></v-list-item-title
             >
           </v-list-item>

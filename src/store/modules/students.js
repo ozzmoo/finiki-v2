@@ -22,6 +22,17 @@ export default {
         });
       ctx.commit('updateStudentList', studentList)
     },
+    async removeStudent(ctx, {
+      groupID,
+      studentID
+    }) {
+      try {
+        const currentUser = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/users/${currentUser}/groups/${groupID}/students/`).child(studentID).remove()
+      } catch (error) {
+        console.log(error)
+      }
+    },
 
     async addFiniks(ctx, {
       studentID,
