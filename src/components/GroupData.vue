@@ -34,7 +34,7 @@
             ></v-text-field>
             <v-text-field v-model="comment" label="Комментарий"></v-text-field>
           </div>
-          <v-btn @click="addFiniks">Добавить</v-btn>
+          <v-btn color="#007bff" dark @click="addFiniks">Добавить</v-btn>
         </div>
         <div class="group-data__table">
           <v-simple-table>

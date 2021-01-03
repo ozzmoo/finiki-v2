@@ -6,7 +6,7 @@
       label="Название группы"
       required
     ></v-text-field>
-    <v-btn @click="addGroup">Добавить</v-btn>
+    <v-btn color="#007bff" dark @click="addGroup">Добавить</v-btn>
   </div>
 </template>
 

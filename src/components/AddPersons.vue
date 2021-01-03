@@ -13,7 +13,7 @@
       label="Имя Фамилия студента"
       required
     ></v-text-field>
-    <v-btn @click="addPerson">Добавить</v-btn>
+    <v-btn color="#007bff" dark @click="addPerson">Добавить</v-btn>
   </div>
 </template>
 

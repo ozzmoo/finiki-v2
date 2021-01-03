@@ -13,7 +13,9 @@
       dense
       @change="loadStudents"
     ></v-select>
-    <v-btn class="draw__button" @click="getWinner">Выбрать победителя</v-btn>
+    <v-btn color="#007bff" dark class="draw__button" @click="getWinner"
+      >Выбрать победителя</v-btn
+    >
     <v-progress-circular
       class="draw__progress"
       v-if="progress"

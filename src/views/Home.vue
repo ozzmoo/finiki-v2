@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <v-app-bar app elevation="1">
+    <v-app-bar app elevation="0" class="header">
       <nav class="nav">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <h1 class="nav__title">Finiki 2.0</h1>
+        <h1 class="nav__title">Финики 2.0</h1>
         <v-btn small icon @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
       </nav>
     </v-app-bar>
@@ -79,7 +79,13 @@ export default {
 </script>
 
 <style lang="scss">
+.header {
+  background: transparent !important;
+}
+
 .nav {
+  max-width: 900px;
+  margin: auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -90,7 +96,8 @@ export default {
   }
   &__title {
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: 2rem;
   }
 }
 

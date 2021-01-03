@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container>
+    <v-container class="container">
       <router-view></router-view>
     </v-container>
   </v-app>
@@ -27,5 +27,8 @@ export default {
 .rout-link {
   text-decoration: none;
   color: black !important;
+}
+.container {
+  max-width: 900px !important;
 }
 </style>
