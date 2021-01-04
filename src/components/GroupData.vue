@@ -55,26 +55,44 @@
                 <td>{{ student.finiki }}</td>
                 <td>
                   <v-btn
+                    @click="showStudentInfo(selectedGroup, student.id)"
+                    small
+                    icon
+                    color="green"
+                    ><v-icon dark> mdi-information-outline </v-icon>
+                  </v-btn>
+                  <v-btn
                     @click="deleteSelfFiniks(selectedGroup, student.id)"
                     small
                     icon
                     color="red lighten-1"
-                    ><v-icon dark> mdi-trash-can-outline </v-icon></v-btn
-                  >
+                    ><v-icon dark> mdi-trash-can-outline </v-icon>
+                  </v-btn>
                 </td>
               </tr>
             </tbody>
           </template>
         </v-simple-table>
+        <v-overlay :dark="false" :value="isStudentInfoShow">
+          <v-card class="stud-info">
+            <v-btn icon @click="isStudentInfoShow = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+            <v-card-text class="stud-info__main"><StudentInfo /></v-card-text>
+          </v-card>
+        </v-overlay>
       </v-card-text>
     </v-card>
   </div>
 </template>
 
 <script>
+import StudentInfo from "./StudentInfo";
 export default {
   name: "GroupData",
-
+  components: {
+    StudentInfo,
+  },
   data() {
     return {
       selectedGroup: "",
@@ -82,6 +100,8 @@ export default {
       comment: "",
       count: null,
       finikSumm: 0,
+      isStudentInfoShow: false,
+      test: true,
     };
   },
   methods: {
@@ -118,6 +138,10 @@ export default {
         this.$store.dispatch("deleteFiniks", { groupID, studentID });
         this.fillStudentList();
       }
+    },
+    showStudentInfo(groupID, studentID) {
+      this.isStudentInfoShow = true;
+      this.$store.dispatch("showStudentInfo", { groupID, studentID });
     },
     /*  */
     convertGroupListToArray(groupList) {
@@ -181,5 +205,12 @@ export default {
 
 .group-data__table {
   margin-top: 2rem;
+}
+
+.stud-info {
+  min-width: 290px;
+  &__main {
+    padding-top: 0px;
+  }
 }
 </style>

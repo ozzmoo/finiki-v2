@@ -4,7 +4,8 @@ import firebase from 'firebase/app';
 export default {
   state: {
     studentList: null,
-    selectedGroup: ''
+    selectedGroup: '',
+    studentInfo: null
   },
   actions: {
 
@@ -64,6 +65,21 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    async showStudentInfo(ctx, {
+      groupID,
+      studentID
+    }) {
+      const currentUser = firebase.auth().currentUser.uid;
+      let studentInfo = null
+      await firebase
+        .database()
+        .ref(`/users/${currentUser}/groups/${groupID}/students/${studentID}`)
+        .once("value")
+        .then((snapshot) => {
+          studentInfo = snapshot.val();
+        });
+      ctx.commit('updateStudentInfo', studentInfo)
     }
   },
   mutations: {
@@ -72,11 +88,17 @@ export default {
     },
     setSelectedGroup(state, selectedGroup) {
       state.selectedGroup = selectedGroup
+    },
+    updateStudentInfo(state, studentInfo) {
+      state.studentInfo = studentInfo
     }
   },
   getters: {
     students(state) {
       return state.studentList
+    },
+    studentInfo(state) {
+      return state.studentInfo
     }
   }
 }
