@@ -3,7 +3,7 @@
     <v-app-bar app elevation="0" class="header">
       <nav class="nav">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <h1 class="nav__title">Финики 2.0</h1>
+        <h1 class="nav__title">Финики <sup>2.0</sup></h1>
         <v-btn color="red lighten-1" small icon @click="logout"
           ><v-icon>mdi-logout</v-icon></v-btn
         >
@@ -26,7 +26,7 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <v-icon color="#12DA67">mdi-account-group</v-icon>
+              <v-icon color="#5452FF">mdi-account-group</v-icon>
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addgroup" class="rout-link">
@@ -37,11 +37,22 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <v-icon color="#5452FF">mdi-human-greeting</v-icon>
+              <v-icon color="#12DA67">mdi-human-greeting</v-icon>
             </v-list-item-icon>
             <v-list-item-title
               ><router-link to="/addpersons" class="rout-link">
                 Студенты
+              </router-link></v-list-item-title
+            >
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon color="#28A8E9">mdi-telegram</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title
+              ><router-link to="/contacts" class="rout-link">
+                Контакты
               </router-link></v-list-item-title
             >
           </v-list-item>
@@ -100,6 +111,9 @@ export default {
     text-align: center;
     font-weight: 400;
     font-size: 2rem;
+    sup {
+      font-size: 1.4rem;
+    }
   }
 }
 
