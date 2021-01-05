@@ -94,6 +94,8 @@ export default {
 <style lang="scss">
 .header {
   background: transparent !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .nav {

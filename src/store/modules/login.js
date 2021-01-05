@@ -8,7 +8,6 @@ export default {
       password
     }) {
       try {
-        console.log(email, password)
         firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (error) {
         console.log(error)

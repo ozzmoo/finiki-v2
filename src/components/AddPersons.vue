@@ -8,6 +8,8 @@
       item-value="id"
       label="Выберите группу"
       outlined
+      filled
+      background-color="#FFF"
       @change="getStudentsByGroup"
     ></v-select>
     <div class="remove-add">

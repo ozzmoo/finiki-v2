@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h2 class="login__title">Финики 2.0</h2>
+    <h2 class="login__title">Финики <sup>2.0</sup></h2>
     <v-card>
       <v-card-title></v-card-title>
       <v-card-text>
@@ -21,6 +21,9 @@
         </div>
       </v-card-text>
     </v-card>
+    <v-btn color="#007bff" dark class="login__guest" @click="guestLogin">
+      Вход для студентов
+    </v-btn>
   </div>
 </template>
 
@@ -50,6 +53,9 @@ export default {
         console.log(error);
       }
     },
+    guestLogin() {
+      this.$router.push("/guest");
+    },
   },
   computed: {},
   mounted() {},
@@ -62,6 +68,8 @@ export default {
   max-width: 600px;
   min-width: 300px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   &__title {
     text-align: center;
     font-weight: 300;
@@ -70,6 +78,10 @@ export default {
   .btns {
     display: flex;
     justify-content: space-between;
+  }
+  &__guest {
+    margin-top: 2rem;
+    align-self: center;
   }
 }
 </style>
