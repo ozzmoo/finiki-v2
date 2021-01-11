@@ -6,7 +6,6 @@ import vuetify from './plugins/vuetify';
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
-import Vuelidate from 'vuelidate'
 
 Vue.config.productionTip = false
 
@@ -22,13 +21,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 firebase.auth().onAuthStateChanged(() => {
   new Vue({
     store,
     router,
     vuetify,
-    Vuelidate,
     render: h => h(App)
   }).$mount('#app')
 })

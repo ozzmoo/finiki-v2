@@ -7,14 +7,18 @@ export default {
       password,
       name
     }) {
-      try {
-        await firebase.auth().createUserWithEmailAndPassword(email, password)
-        const currentUser = await firebase.auth().currentUser
-        await firebase.database().ref(`/users/${currentUser.uid}/`).set({
-          name
-        })
-      } catch (error) {
-        console.log(error)
+      if (email != '' && password != '' && name != '') {
+        try {
+          await firebase.auth().createUserWithEmailAndPassword(email, password)
+          const currentUser = await firebase.auth().currentUser
+          await firebase.database().ref(`/users/${currentUser.uid}/`).set({
+            name
+          })
+        } catch (error) {
+          console.log(error)
+        }
+      } else {
+        alert('Заполните все поля')
       }
     }
   },

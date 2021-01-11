@@ -98,7 +98,7 @@ export default {
       selectedGroup: "",
       selectedStudent: "",
       comment: "",
-      count: null,
+      count: "",
       finikSumm: 0,
       isStudentInfoShow: false,
       test: true,
@@ -120,6 +120,10 @@ export default {
       let groupID = this.selectedGroup;
       let count = this.count;
       let comment = this.comment;
+      if (count == "" || comment == "") {
+        alert("Заполните поля Количество и Комментарий");
+        return false;
+      }
       if (studentID) {
         this.$store.dispatch("addFiniks", {
           studentID,
@@ -127,7 +131,7 @@ export default {
           count,
           comment,
         });
-        this.count = null;
+        this.count = "";
         this.comment = "";
         this.fillStudentList();
       }

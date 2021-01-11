@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 import firebase from 'firebase/app';
 
@@ -9,8 +10,8 @@ export default {
     }) {
       try {
         firebase.auth().signInWithEmailAndPassword(email, password)
-      } catch (error) {
-        console.log(error)
+      } catch (e) {
+        console.log(e)
       }
     }
   }

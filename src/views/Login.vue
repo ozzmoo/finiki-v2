@@ -12,7 +12,15 @@
           required
         ></v-text-field>
         <div class="btns">
-          <v-btn color="#007bff" dark @click="login">Войти</v-btn>
+          <v-btn
+            color="#007bff"
+            dark
+            @click="
+              login();
+              validateForm();
+            "
+            >Войти</v-btn
+          >
           <v-btn color="#4DB6AC" dark
             ><router-link to="/reg" class="rout-link"
               >Регистрация</router-link
@@ -24,10 +32,20 @@
     <v-btn color="#007bff" dark class="login__guest" @click="guestLogin">
       Вход для студентов
     </v-btn>
+    <v-snackbar v-model="errorSnack" :timeout="errorTimeout">
+      {{ error }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="errorSnack = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script>
+/* eslint-disable no-undef */
+/* eslint-disable no-empty */
 import firebase from "firebase/app";
 export default {
   name: "Login",
@@ -36,6 +54,9 @@ export default {
       password: "",
       email: "",
       passtype: "Password",
+      error: "",
+      errorSnack: false,
+      errorTimeout: 2000,
     };
   },
   methods: {
@@ -49,16 +70,25 @@ export default {
         if (firebase.auth().currentUser) {
           this.$router.push("/home");
         }
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
+        console.log("vue");
       }
     },
     guestLogin() {
       this.$router.push("/guest");
     },
+    validateForm() {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (this.email == "") {
+        this.error = "Введите email";
+        this.errorSnack = true;
+      }
+      if (!re.test(String(this.email).toLowerCase())) {
+        this.error = "Такого email не существует";
+        this.errorSnack = true;
+      }
+    },
   },
-  computed: {},
-  mounted() {},
 };
 </script>
 

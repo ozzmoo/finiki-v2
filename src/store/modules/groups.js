@@ -12,6 +12,8 @@ export default {
         await firebase.database().ref(`/users/${currentUser.uid}/groups/`).push({
           groupName
         })
+      } else {
+        alert("Введите название группы")
       }
     },
     async removeGroup(ctx, {
@@ -41,10 +43,14 @@ export default {
       personName,
       selectedGroup
     }) {
-      const currentUser = firebase.auth().currentUser.uid;
-      await firebase.database().ref(`/users/${currentUser}/groups/${selectedGroup}/students`).push({
-        personName
-      })
+      if (personName != "") {
+        const currentUser = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`/users/${currentUser}/groups/${selectedGroup}/students`).push({
+          personName
+        })
+      } else {
+        alert("Введите имя студента")
+      }
     }
 
   },
