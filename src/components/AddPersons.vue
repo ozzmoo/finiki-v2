@@ -82,14 +82,18 @@ export default {
   },
   methods: {
     async addPerson() {
-      try {
-        await this.$store.dispatch("addPersonToGroup", {
-          personName: this.personName,
-          selectedGroup: this.selectedGroup,
-        });
-        this.personName = "";
-      } catch (error) {
-        console.log(error);
+      if (this.selectedGroup) {
+        try {
+          await this.$store.dispatch("addPersonToGroup", {
+            personName: this.personName,
+            selectedGroup: this.selectedGroup,
+          });
+          this.personName = "";
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        alert("Выберите группу");
       }
     },
     getStudentsByGroup() {
