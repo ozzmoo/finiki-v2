@@ -3,13 +3,24 @@
     <v-card>
       <v-card-title> Регистрация </v-card-title>
       <v-card-text>
-        <v-text-field v-model="name" label="Имя" required></v-text-field>
-        <v-text-field v-model="email" label="E-mail" required></v-text-field>
+        <v-text-field
+          v-model="name"
+          label="Имя"
+          required
+          outlined
+        ></v-text-field>
+        <v-text-field
+          v-model="email"
+          label="E-mail"
+          required
+          outlined
+        ></v-text-field>
         <v-text-field
           v-model="password"
           label="Пароль"
           :type="passtype"
           required
+          outlined
         ></v-text-field>
         <v-btn color="#4DB6AC" dark @click="auth">Зарегистрироваться</v-btn>
       </v-card-text>

@@ -9,6 +9,7 @@
           item-text="name"
           item-value="id"
           label="Выберите группу"
+          no-data-text="Нет доступных групп"
           outlined
           dense
           @change="
@@ -25,6 +26,7 @@
             outlined
             dense
             label="Имя студента"
+            no-data-text="Нет доступных студентов"
           ></v-autocomplete>
           <div class="add-finiks__inputs">
             <v-text-field

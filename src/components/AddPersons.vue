@@ -11,6 +11,7 @@
       filled
       background-color="#FFF"
       @change="getStudentsByGroup"
+      no-data-text="Нет доступных групп"
     ></v-select>
     <div class="remove-add">
       <div class="remove-add__add">
@@ -46,6 +47,7 @@
               item-value="id"
               outlined
               label="Студент"
+              no-data-text="Нет доступных студентов"
             ></v-autocomplete>
             <v-btn
               color="red lighten-1"

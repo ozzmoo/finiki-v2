@@ -35,6 +35,7 @@
               item-value="id"
               outlined
               label="Группa"
+              no-data-text="Нет доступных групп"
             ></v-autocomplete>
             <v-btn
               color="red lighten-1"

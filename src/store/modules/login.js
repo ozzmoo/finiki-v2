@@ -13,6 +13,18 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+    async loginWithGoogle() {
+      try {
+
+        const provider = new firebase.auth.GoogleAuthProvider();
+        console.log(provider)
+        let resuilt = await firebase.auth().signInWithPopup(provider)
+        console.log(resuilt)
+      } catch (e) {
+        console.log(e)
+      }
+
     }
   }
 }

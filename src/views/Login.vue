@@ -4,15 +4,22 @@
     <v-card>
       <v-card-title></v-card-title>
       <v-card-text>
-        <v-text-field v-model="email" label="Email" required></v-text-field>
+        <v-text-field
+          v-model="email"
+          label="Email"
+          required
+          outlined
+        ></v-text-field>
         <v-text-field
           v-model="password"
           label="Пароль"
           :type="passtype"
           required
+          outlined
         ></v-text-field>
         <div class="btns">
           <v-btn
+            class="btns__item"
             color="#007bff"
             dark
             @click="
@@ -21,7 +28,17 @@
             "
             >Войти</v-btn
           >
-          <v-btn color="#4DB6AC" dark
+          <v-btn
+            class="btns__item"
+            color="#DF4930"
+            dark
+            dense
+            @click="loginWithGoogle"
+            >Войти через<v-icon color="white" class="google-icon"
+              >mdi-google</v-icon
+            ></v-btn
+          >
+          <v-btn class="btns__item" color="#4DB6AC" dark
             ><router-link to="/reg" class="rout-link"
               >Регистрация</router-link
             ></v-btn
@@ -74,6 +91,16 @@ export default {
         console.log("vue");
       }
     },
+    async loginWithGoogle() {
+      try {
+        await this.$store.dispatch("loginWithGoogle");
+        if (firebase.auth().currentUser) {
+          this.$router.push("/home");
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
     guestLogin() {
       this.$router.push("/guest");
     },
@@ -106,12 +133,23 @@ export default {
     font-size: 4rem;
   }
   .btns {
+    margin: 0 auto;
+    max-width: 70%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    &__item {
+      margin-top: 1rem;
+    }
   }
   &__guest {
     margin-top: 2rem;
     align-self: center;
   }
+}
+.rout-link {
+  color: white !important;
+}
+.google-icon {
+  margin-left: 0.5rem;
 }
 </style>
