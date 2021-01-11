@@ -13,49 +13,41 @@
     <v-navigation-drawer v-model="drawer" app absolute temporary clipped>
       <v-list nav dense>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon color="#FF613F">mdi-gamepad-square</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title
-              ><router-link to="/draw" class="rout-link">
-                Определить победителя
-              </router-link></v-list-item-title
-            >
-          </v-list-item>
+          <router-link to="/draw" class="rout-link">
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon color="#FF613F">mdi-gamepad-square</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title> Определить победителя </v-list-item-title>
+            </v-list-item>
+          </router-link>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon color="#5452FF">mdi-account-group</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title
-              ><router-link to="/addgroup" class="rout-link">
-                Группы
-              </router-link></v-list-item-title
-            >
-          </v-list-item>
+          <router-link to="/addgroup" class="rout-link">
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon color="#5452FF">mdi-account-group</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title> Группы </v-list-item-title>
+            </v-list-item>
+          </router-link>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon color="#12DA67">mdi-human-greeting</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title
-              ><router-link to="/addpersons" class="rout-link">
-                Студенты
-              </router-link></v-list-item-title
-            >
-          </v-list-item>
+          <router-link to="/addpersons" class="rout-link">
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon color="#12DA67">mdi-human-greeting</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title> Студенты </v-list-item-title>
+            </v-list-item>
+          </router-link>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon color="#28A8E9">mdi-telegram</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title
-              ><router-link to="/contacts" class="rout-link">
-                Контакты
-              </router-link></v-list-item-title
-            >
-          </v-list-item>
+          <router-link to="/contacts" class="rout-link">
+            <v-list-item>
+              <v-list-item-icon>
+                <v-icon color="#28A8E9">mdi-telegram</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title> Контакты </v-list-item-title>
+            </v-list-item>
+          </router-link>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
