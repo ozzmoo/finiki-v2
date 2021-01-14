@@ -60,7 +60,19 @@ export default {
       try {
         const currentUser = firebase.auth().currentUser.uid;
         const ref = await firebase.database().ref(`/users/${currentUser}/groups/${groupID}/students/${studentID}/finiki`)
-        console.log(ref)
+        ref.remove()
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async deleteSelectedFiniks(ctx, {
+      groupID,
+      studentID,
+      finikID
+    }) {
+      try {
+        const currentUser = firebase.auth().currentUser.uid;
+        const ref = await firebase.database().ref(`/users/${currentUser}/groups/${groupID}/students/${studentID}/finiki/${finikID}`)
         ref.remove()
       } catch (error) {
         console.log(error)
@@ -79,7 +91,11 @@ export default {
         .then((snapshot) => {
           studentInfo = snapshot.val();
         });
-      ctx.commit('updateStudentInfo', studentInfo)
+      ctx.commit('updateStudentInfo', {
+        studentInfo,
+        groupID,
+        studentID
+      })
     }
   },
   mutations: {
