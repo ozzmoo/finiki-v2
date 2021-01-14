@@ -1,7 +1,16 @@
 <template>
   <div class="group-data">
     <v-card>
-      <v-card-title>Финики</v-card-title>
+      <v-card-title class="group-data__title">
+        <span>Финики</span>
+        <v-btn
+          href="https://telegra.ph/Finiki-20---Kak-polzovatsya-01-14"
+          outlined
+          small
+        >
+          Инструкция
+        </v-btn>
+      </v-card-title>
       <v-card-text>
         <v-select
           v-model="selectedGroup"
@@ -199,6 +208,11 @@ export default {
   & * {
     margin: 10px;
   }
+}
+
+.group-data__title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .count {

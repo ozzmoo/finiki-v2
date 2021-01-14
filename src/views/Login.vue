@@ -46,6 +46,14 @@
         </div>
       </v-card-text>
     </v-card>
+    <v-btn
+      href="https://telegra.ph/Finiki-20---Kak-polzovatsya-01-14"
+      color="#007bff"
+      class="login__guest"
+      dark
+    >
+      Инструкция
+    </v-btn>
     <v-btn color="#007bff" dark class="login__guest" @click="guestLogin">
       Вход для студентов
     </v-btn>
